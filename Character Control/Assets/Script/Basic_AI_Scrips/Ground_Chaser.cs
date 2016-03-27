@@ -3,60 +3,70 @@ using System.Collections;
 
 public class Ground_Chaser : MonoBehaviour
 {
+    public Transform[] patrol;
+    private int current_location;
+    public float patrol_speed;
+
     public GameObject target;
+    private float chaser_to_target_distance_x;
+    private float chaser_to_target_distance_y;
+    private float chaser_to_target_distance_z;
+    public float detection_x;
+    public float detection_y;
+    public float detection_z;
     public float chaser_speed;
-    public float detection;
-    private float chaser_to_target_distance;
-    private bool chasing;
+    private bool patroling;
 
 
-
-    public GameObject Bullet;
-    public GameObject Bullet_Emitter;
-    public float Bullet_Forward_Force;
-
-    // Use this for initialization
     void Start()
     {
-
+        patroling = true;
+        transform.position = patrol[0].position;
+        current_location = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        chaser_to_target_distance = Mathf.Abs(target.transform.position.x - transform.position.x);
-        if (chaser_to_target_distance < detection)
+        chaser_to_target_distance_x = Mathf.Abs(target.transform.position.x - transform.position.x);
+        chaser_to_target_distance_y = Mathf.Abs(target.transform.position.y - transform.position.y);
+        chaser_to_target_distance_z = Mathf.Abs(target.transform.position.z - transform.position.z);
+        Vector3 distance = new Vector3(chaser_to_target_distance_x, chaser_to_target_distance_y, chaser_to_target_distance_z);
+        Vector3 detection_vector = new Vector3(detection_x, detection_y, detection_z);
+        if (!patroling)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, chaser_speed);
-            if (Input.GetKeyDown("space"))
+            if (distance.x > detection_vector.x || distance.y > detection_vector.y)
             {
-                //The Bullet instantiation happens here.
-                GameObject Temporary_Bullet_Handler;
-                Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
+                patroling = true;
+            }
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, chaser_speed * Time.deltaTime);
+        }
+        if (patroling)
+        {
+            if (transform.position == patrol[current_location].position)
+            {
+                //transform.Rotate(0, 0, 180);
+                current_location++;
 
-                //Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
-                //This is EASILY corrected here, you might have to rotate it from a different axis and or angle based on your particular mesh.
-                Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 90);
+            }
 
-                //Retrieve the Rigidbody component from the instantiated Bullet and control it.
-                Rigidbody2D Temporary_RigidBody;
-                Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody2D>();
+            if (current_location >= patrol.Length)
+            {
+                //transform.Rotate(0, 0, -180);
+                current_location = 0;
+            }
+            transform.position = Vector3.MoveTowards(transform.position, patrol[current_location].position, patrol_speed * Time.deltaTime);
 
-                //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.
-                Temporary_RigidBody.AddForce(transform.forward * Bullet_Forward_Force);
 
-                //Basic Clean Up, set the Bullets to self destruct after 10 Seconds, I am being VERY generous here, normally 3 seconds is plenty.
-                Destroy(Temporary_Bullet_Handler, 5.0f);
+
+
+            if (distance.x < detection_vector.x && distance.y < detection_vector.y)
+            {
+                patroling = false;
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, chaser_speed * Time.deltaTime);
             }
 
         }
+
+
     }
-
-
-    
-
-
-
-
-
-}
+}  
