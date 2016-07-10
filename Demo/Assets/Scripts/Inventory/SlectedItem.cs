@@ -2,8 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
-public class SlectedItem : MonoBehaviour {
+public class SlectedItem : MonoBehaviour, IDragHandler {
 
     private Text selectedItemText;
     private List<BaseItem> playerInventory;
@@ -20,12 +21,11 @@ public class SlectedItem : MonoBehaviour {
 	void Update () {
         if (this.gameObject.GetComponent<Toggle>().isOn && Input.GetKeyDown(KeyCode.E))
         {
-            Destroy(this.gameObject);
+            int itemIndex = System.Int32.Parse(this.gameObject.name);
+            playerInventory[itemIndex].ItemName = "Empty";
+            this.transform.GetChild(0).gameObject.SetActive(false);
 
             basePlayerScript.playerHP += 20;
-            //int itemIndex = System.Int32.Parse(this.gameObject.name);
-            //playerInventory.Remove(playerInventory[itemIndex]);
-            //print(playerInventory.Count);
         }
 
     }
@@ -43,5 +43,11 @@ public class SlectedItem : MonoBehaviour {
                 selectedItemText.text = playerInventory[itemIndex].ItemName + ", " + playerInventory[itemIndex].ItemDescription;
             }
         }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+
+        GameObject.Find("Inventory Window").GetComponent<InventoryWindow>().ShowDraggedItem();
     }
 }

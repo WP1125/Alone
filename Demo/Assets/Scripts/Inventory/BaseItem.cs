@@ -18,16 +18,32 @@ public class BaseItem {
         COLLECTABLE
     }
 
+    //generate a random item
     public BaseItem()
     {
         ItemName = "Item" + Random.Range(0, 101);
         ItemDescription = ItemName + " is an awsome item!";
         ItemValue = Random.Range(10, 500);
-        ItemType = ItemTypes.POTION;
+        ChooseType();
         ItemStat = new List<BaseStat>();
         ItemStat.Add(new BaseStamina());
         ItemStat.Add(new BaseHP());
     }
 
+    private void ChooseType()
+    {
+        int type = Random.Range(0, 3);
+        if (type == 0)
+        {
+            ItemType = ItemTypes.POTION;
+        }else if(type == 1)
+        {
+            ItemType = ItemTypes.COLLECTABLE;
+        }
+        else
+        {
+            ItemType = ItemTypes.QUESTITEM;
+        }
+    }
     
 }

@@ -10,6 +10,8 @@ public class InventoryWindow : MonoBehaviour {
     public GameObject itemSlotPrefab;
     public ToggleGroup itemSlotToggleGroup;
 
+    public GameObject draggedIcon;
+
 	private int xPos, yPos;
     private GameObject itemSlot;
 	private int slotCnt;
@@ -23,9 +25,17 @@ public class InventoryWindow : MonoBehaviour {
         AddItemsFromInventory();
     }
 	
-	void Update () {
-        
-	}
+    public void RenewInventoryWindow()
+    {
+        AddItemsFromInventory();
+    }
+
+    //draggable items, not yet inplemented
+    public void ShowDraggedItem()
+    {
+        print("dragging");
+        //draggedIcon.SetActive(true);
+    }
 
     private void CreatInventorySlot()
     {
@@ -63,7 +73,33 @@ public class InventoryWindow : MonoBehaviour {
             if (inventorySlots[i].name == "Empty")
             {
                 inventorySlots[i].name = i.ToString();
+                //add icon;
+                inventorySlots[i].transform.GetChild(0).gameObject.SetActive(true);
+                inventorySlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ReturnItemIcon(playerInventory[i]);
             }
         }
+    }
+
+    private Sprite ReturnItemIcon(BaseItem item)
+    {
+        Sprite icon = new Sprite();
+        Sprite [] spriteCollection = Resources.LoadAll<Sprite>("Sprites/Items");
+        if (item.ItemType == BaseItem.ItemTypes.POTION)
+        {
+            //icon = Resources.Load<Sprite>("Sprites/Items/68043_95");
+            icon = spriteCollection[95];
+        }
+        else if (item.ItemType == BaseItem.ItemTypes.QUESTITEM)
+        {
+            //icon = Resources.Load<Sprite>("Sprites/Items/68043_53");
+            icon = spriteCollection[53];
+        }
+        else
+        {
+            //icon = Resources.Load<Sprite>("Sprites/Items/68043_45");
+            icon = spriteCollection[45];
+        }
+
+        return icon;
     }
 }

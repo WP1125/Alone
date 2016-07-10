@@ -15,23 +15,19 @@ public class BasePlayer : MonoBehaviour {
         {
             BaseItem _item = new BaseItem();
             _inventory.Add(_item);
-            Debug.Log(_inventory[i].ItemName);
-            Debug.Log(_inventory[i].ItemDescription);
-            Debug.Log(_inventory[i].ItemValue);
-            Debug.Log(_inventory[i].ItemType);
-            Debug.Log(_inventory[i].ItemStat[0].StatName);
-            Debug.Log(_inventory[i].ItemStat[0].StatDescription);
-            Debug.Log(_inventory[i].ItemStat[0].StatType);
+            //Debug.Log(_inventory[i].ItemName);
+            //Debug.Log(_inventory[i].ItemDescription);
+            //Debug.Log(_inventory[i].ItemValue);
+            //Debug.Log(_inventory[i].ItemType);
+            //Debug.Log(_inventory[i].ItemStat[0].StatName);
+            //Debug.Log(_inventory[i].ItemStat[0].StatDescription);
+            //Debug.Log(_inventory[i].ItemStat[0].StatType);
         }
-        Debug.Log(_inventory.Count);
+        //Debug.Log(_inventory.Count);
         playerHP = 80;
         playerStamina = 100;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 
     public List<BaseItem> ReturnPlayerInventory()
     {
