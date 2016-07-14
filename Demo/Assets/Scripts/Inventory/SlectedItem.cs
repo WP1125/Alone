@@ -10,24 +10,27 @@ public class SlectedItem : MonoBehaviour, IDragHandler {
     private List<BaseItem> playerInventory;
     private BasePlayer basePlayerScript;
 
-    // Use this for initialization
+
     void Start () {
         selectedItemText = GameObject.Find("Selected_item_text").GetComponent<Text>();
         basePlayerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();
         playerInventory = basePlayerScript.ReturnPlayerInventory();
     }
-	
-	// Update is called once per frame
+
 	void Update () {
         if (this.gameObject.GetComponent<Toggle>().isOn && Input.GetKeyDown(KeyCode.E))
         {
             int itemIndex = System.Int32.Parse(this.gameObject.name);
-            playerInventory[itemIndex].ItemName = "Empty";
-            this.transform.GetChild(0).gameObject.SetActive(false);
+			if (playerInventory [itemIndex].ItemType == BaseItem.ItemTypes.POTION) {
+				playerInventory [itemIndex].ItemName = "Empty";
+				this.transform.GetChild (0).gameObject.SetActive (false);
+				selectedItemText.text = "Item comsumed";
 
-            basePlayerScript.playerHP += 20;
+				basePlayerScript.playerHP += 20;
+			} else {
+				selectedItemText.text = "Item connot be comsumed";
+			}
         }
-
     }
 
     public void ShowSelectedItemText()
@@ -47,7 +50,6 @@ public class SlectedItem : MonoBehaviour, IDragHandler {
 
     public void OnDrag(PointerEventData eventData)
     {
-
         GameObject.Find("Inventory Window").GetComponent<InventoryWindow>().ShowDraggedItem();
     }
 }

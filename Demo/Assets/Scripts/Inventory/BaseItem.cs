@@ -7,9 +7,9 @@ public class BaseItem {
     public string ItemName { get; set; }
     public string ItemDescription { get; set; }
     public int ItemID { get; set; }
-    public int ItemValue;
+	public int ItemValue { get; set; }
     public ItemTypes ItemType { get; set; }
-    public List<BaseStat> ItemStat { get; set; }
+    //public List<BaseStat> ItemStat { get; set; }
 
     public enum ItemTypes
     {
@@ -25,9 +25,9 @@ public class BaseItem {
         ItemDescription = ItemName + " is an awsome item!";
         ItemValue = Random.Range(10, 500);
         ChooseType();
-        ItemStat = new List<BaseStat>();
-        ItemStat.Add(new BaseStamina());
-        ItemStat.Add(new BaseHP());
+        //ItemStat = new List<BaseStat>();
+        //ItemStat.Add(new BaseStamina());
+        //ItemStat.Add(new BaseHP());
     }
 
     private void ChooseType()

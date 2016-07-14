@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class BasePlayer : MonoBehaviour {
 
-    public int playerHP;
-    public int playerStamina;
-    private List<BaseStat> _playerStats = new List<BaseStat>();
+	public int playerHP;
+	public int playerStamina;
+    //private List<BaseStat> _playerStats = new List<BaseStat>();
     private List<BaseItem> _inventory = new List<BaseItem>();
 
 	// Use this for initialization
@@ -23,9 +23,6 @@ public class BasePlayer : MonoBehaviour {
             //Debug.Log(_inventory[i].ItemStat[0].StatDescription);
             //Debug.Log(_inventory[i].ItemStat[0].StatType);
         }
-        //Debug.Log(_inventory.Count);
-        playerHP = 80;
-        playerStamina = 100;
 	}
 
 

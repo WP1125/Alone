@@ -10,8 +10,35 @@ public class Item : MonoBehaviour {
     private BaseItem thisItem;
     private List<BaseItem> playerInventory;
 
+	//custom stats;
+	public bool customStat;
+	public string ItemName;
+	public string ItemDescription;
+	public int ItemID;
+	public int ItemValue;
+	//0:potion,1:quest item,2:collectable;
+	[Range(0,2)]
+	public int ItemType;
+
     void Start () {
         thisItem = new BaseItem();
+		if (customStat) {
+			thisItem.ItemName = ItemName;
+			thisItem.ItemDescription = ItemDescription;
+			thisItem.ItemID = ItemID;
+			thisItem.ItemValue = ItemValue;
+			switch (ItemType) {
+			case(0):
+				thisItem.ItemType = BaseItem.ItemTypes.POTION;
+				break;
+			case(1):
+				thisItem.ItemType = BaseItem.ItemTypes.QUESTITEM;
+				break;
+			case(2):
+				thisItem.ItemType = BaseItem.ItemTypes.COLLECTABLE;
+				break;
+			}
+		}
         this.gameObject.GetComponent<SpriteRenderer>().sprite = ReturnItemIcon(thisItem);
 	}
 	
