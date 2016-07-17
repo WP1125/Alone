@@ -207,9 +207,9 @@ public class Controller2D : RaycastController {
 		public bool fallingThroughPlatform;
 
 		public void Reset() {
-			above = below = false;
-			left = right = false;
-			climbingSlope = false;
+			above = below   = false;
+			left  = right   = false;
+			climbingSlope   = false;
 			descendingSlope = false;
 
 			slopeAngleOld = slopeAngle;

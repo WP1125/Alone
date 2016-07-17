@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class BasePlayer : MonoBehaviour {
 
+    [Range(0,100)]
 	public int playerHP;
 	public int playerStamina;
     //private List<BaseStat> _playerStats = new List<BaseStat>();
@@ -25,6 +26,14 @@ public class BasePlayer : MonoBehaviour {
         }
 	}
 
+    public void increaseHP(int amount)
+    {
+        playerHP += amount;
+        if(playerHP > 100)
+        {
+            playerHP = 100;
+        }
+    }
 
     public List<BaseItem> ReturnPlayerInventory()
     {

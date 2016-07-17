@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Inventory\SlectedItem.cs" />
     <Compile Include="Assets\Scripts\Platform\DoorController.cs" />
     <Compile Include="Assets\Scripts\Platform\PlatformController.cs" />
+    <Compile Include="Assets\Scripts\Platform\RopeController.cs" />
     <Compile Include="Assets\Scripts\Player\BasePlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\Controller2D.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\Player.cs" />
@@ -76,9 +77,18 @@
     <Compile Include="Assets\Scripts\Stats\BaseHP.cs" />
     <Compile Include="Assets\Scripts\Stats\BaseStamina.cs" />
     <Compile Include="Assets\Scripts\Stats\BaseStat.cs" />
+    <Compile Include="Assets\Scripts\Target Aim\AimingScript.cs" />
+    <Compile Include="Assets\Scripts\Target Aim\MouseAim.cs" />
+    <Compile Include="Assets\Scripts\Temp\ElementalScroll.cs" />
     <Compile Include="Assets\Scripts\Temp\Interactions.cs" />
-    <Compile Include="Assets\Scripts\Temp\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Temp\Movement.cs" />
+    <Compile Include="Assets\Scripts\Temp\MovetoMouse.cs" />
+    <Compile Include="Assets\Scripts\Temp\Parent.cs" />
+    <Compile Include="Assets\Scripts\Temp\Staminas.cs" />
+    <Compile Include="Assets\Scripts\Temp\Timers.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Elemental.cs" />
+    <Compile Include="Assets\Scripts\Weapon\LookAtMouse.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WindSkills.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

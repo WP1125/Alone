@@ -6,7 +6,8 @@ public class Player : MonoBehaviour {
     Controller2D controller;
 
     //general variables
-    public float moveSpeed = 6;
+    public float moveSpeed          = 6;
+    public float crouchMultiplier   = .5f;
     float gravity;
     Vector3 velocity;
     float velocityXSmoothing;
@@ -29,17 +30,17 @@ public class Player : MonoBehaviour {
 	public float wallStickTime      = .25f;
 	float timeToWallUnstick;
 
+    private bool doubleJump;
+
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
-
-        //Caculating gravity
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+        doubleJump = false;
 
         //variable jump height. Press longer will jump higher
-		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
 	}
 
 	void Update() {
@@ -47,9 +48,11 @@ public class Player : MonoBehaviour {
 		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 
+        float targetVelocityX = input.x * moveSpeed;
+        if (Input.GetKey(KeyCode.S))
+            targetVelocityX = targetVelocityX * crouchMultiplier;
         //Smoothen acceleration
-		float targetVelocityX = input.x * moveSpeed;
-		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+        velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 
         //Handling wall jumping
 		bool wallSliding = false;
@@ -89,11 +92,22 @@ public class Player : MonoBehaviour {
 					velocity.y = wallLeap.y;
 				}
 			}
-			if (controller.collisions.below) 
-				velocity.y = maxJumpVelocity;
-		}
+            if (controller.collisions.below)
+            {
+                velocity.y = maxJumpVelocity;
+                doubleJump = true;
+            }
 
-		if (Input.GetKeyUp (KeyCode.Space))
+            //double jump
+            else if (Input.GetKey(KeyCode.W) && doubleJump)
+            {
+                velocity.y = maxJumpVelocity;
+                doubleJump = false;
+            }
+
+        }
+
+        if (Input.GetKeyUp (KeyCode.Space))
 			if (velocity.y > minJumpVelocity) 
 				velocity.y = minJumpVelocity;
 	

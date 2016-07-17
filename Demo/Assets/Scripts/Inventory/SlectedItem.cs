@@ -18,15 +18,15 @@ public class SlectedItem : MonoBehaviour, IDragHandler {
     }
 
 	void Update () {
-        if (this.gameObject.GetComponent<Toggle>().isOn && Input.GetKeyDown(KeyCode.E))
+        if (GetComponent<Toggle>().isOn && Input.GetKeyDown(KeyCode.E))
         {
-            int itemIndex = System.Int32.Parse(this.gameObject.name);
+            int itemIndex = System.Int32.Parse(gameObject.name);
 			if (playerInventory [itemIndex].ItemType == BaseItem.ItemTypes.POTION) {
 				playerInventory [itemIndex].ItemName = "Empty";
-				this.transform.GetChild (0).gameObject.SetActive (false);
+				transform.GetChild (0).gameObject.SetActive (false);
 				selectedItemText.text = "Item comsumed";
 
-				basePlayerScript.playerHP += 20;
+                comsumePotion(playerInventory[itemIndex]);
 			} else {
 				selectedItemText.text = "Item connot be comsumed";
 			}
@@ -35,16 +35,24 @@ public class SlectedItem : MonoBehaviour, IDragHandler {
 
     public void ShowSelectedItemText()
     {
-        if (this.gameObject.GetComponent<Toggle>().isOn)
+        if (GetComponent<Toggle>().isOn)
         {
-            if (this.gameObject.name == "Empty"){
+            if (gameObject.name == "Empty"){
                 selectedItemText.text = "This slot is empty.";
             }
             else
             {
-                int itemIndex = System.Int32.Parse(this.gameObject.name);
+                int itemIndex = System.Int32.Parse(gameObject.name);
                 selectedItemText.text = playerInventory[itemIndex].ItemName + ", " + playerInventory[itemIndex].ItemDescription;
             }
+        }
+    }
+
+    public void comsumePotion(BaseItem item)
+    {
+        if (item.ItemType == BaseItem.ItemTypes.POTION)
+        {
+            basePlayerScript.increaseHP(20);
         }
     }
 
