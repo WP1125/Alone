@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     //general variables
     public float moveSpeed          = 6;
     public float crouchMultiplier   = .5f;
-    float gravity;
+    public float gravity;
     Vector3 velocity;
     float velocityXSmoothing;
 

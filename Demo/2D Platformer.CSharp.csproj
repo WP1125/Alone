@@ -60,6 +60,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\RopeCreator2D\Scripts\Rope2DLineRendSetPoints.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DCircleGizmo.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DEndpointsGizmos.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseCutter.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseDrag.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DTear.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Inventory\BaseItem.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryController.cs" />
@@ -69,6 +75,7 @@
     <Compile Include="Assets\Scripts\Platform\DoorController.cs" />
     <Compile Include="Assets\Scripts\Platform\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Platform\RopeController.cs" />
+    <Compile Include="Assets\Scripts\Platform\RopeHookController.cs" />
     <Compile Include="Assets\Scripts\Player\BasePlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\Controller2D.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\Player.cs" />

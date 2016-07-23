@@ -20,7 +20,6 @@ public class DoorController : MonoBehaviour {
         if (timerStart && timeLeft > 0f)
         {
             timeLeft -= Time.deltaTime;
-            //door.gameObject.SetActive(false);
         }
 
         if(timeLeft <= 0)
@@ -46,7 +45,6 @@ public class DoorController : MonoBehaviour {
         if (other.gameObject.name == "Player")
         {
             timerStart = true;
-            //door.gameObject.SetActive(true);
         }
     }
 }
