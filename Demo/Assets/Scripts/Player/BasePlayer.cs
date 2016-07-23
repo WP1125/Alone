@@ -35,6 +35,15 @@ public class BasePlayer : MonoBehaviour {
         }
     }
 
+    public void deceaseHP(int amount)
+    {
+        playerHP -= amount;
+        if (playerHP < 0)
+        {
+            playerHP = 0;
+        }
+    }
+
     public List<BaseItem> ReturnPlayerInventory()
     {
         return _inventory;
