@@ -71,7 +71,10 @@
     <Compile Include="Assets\Script\AimingScript.cs" />
     <Compile Include="Assets\Script\Elemental.cs" />
     <Compile Include="Assets\Script\ElementalScroll.cs" />
+    <Compile Include="Assets\Script\FireSkills.cs" />
+    <Compile Include="Assets\Script\IceSkills.cs" />
     <Compile Include="Assets\Script\Interactions.cs" />
+    <Compile Include="Assets\Script\LightningSkills.cs" />
     <Compile Include="Assets\Script\LookAtMouse.cs" />
     <Compile Include="Assets\Script\MouseAim.cs" />
     <Compile Include="Assets\Script\Movement.cs" />

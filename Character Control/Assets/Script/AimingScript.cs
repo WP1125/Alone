@@ -1,7 +1,7 @@
 ﻿ using UnityEngine;
 using System.Collections;
 
-public class AimingScript : Staminas {
+public class AimingScript : MonoBehaviour {
     public static Vector3 MousePosition;
     public static Vector2 diffInAngle;
     public static int MaxDistance;
@@ -17,6 +17,8 @@ public class AimingScript : Staminas {
         MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
     }
+
+
 
     public static float getDistance(Vector2 x, Vector2 y)
     {

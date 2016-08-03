@@ -2,14 +2,27 @@
 using System.Collections;
 
 public class Staminas : MonoBehaviour {
-    public int mainStamina;
+    //private int mainStamina;
     public int windStamina;
-    private float windTime;
+    public int iceStamina;
+    public int windStaminaFull;
+    public int iceStaminaFull;
+    private float windRechargeTime;
+    private float iceRechargeTime;
+    /*
     // Use this for initialization
     void Awake() {
-        windStamina = 3;
+        windStaminaFull = 60;
+        //windStamina = windStaminaFull;
+        windRechargeTime = 0.5f;
+        StartCoroutine(windStaminaRefill());
+        iceStaminaFull = 60;
+        iceStamina = iceStaminaFull;
+        iceRechargeTime = 0.5f;
+        StartCoroutine(iceStaminaRefill());
     }
 	void Start () {
+        windStamina = 30;
     }
 	
 	// Update is called once per frame
@@ -18,14 +31,33 @@ public class Staminas : MonoBehaviour {
     }
 
     public IEnumerator windStaminaRefill() {
-        Debug.Log(windStamina);
-        yield return new WaitForSeconds(5);
-        if (windStamina < 3) {
-            windStamina += 1;
-            Debug.Log(windStamina);
-
+        while (true)
+        {
+            //Debug.Log(windStamina);
+            if (windStamina < windStaminaFull) {
+                //Debug.Log(windStamina);
+                yield return new WaitForSeconds(windRechargeTime);
+                windStamina += 1;
+                Debug.Log("WindStamina: " + windStamina);
+            }
+            yield return null;
         }
-        StopCoroutine(windStaminaRefill());
     }
+    public IEnumerator iceStaminaRefill()
+    {
+        
+        while (true)
+        {
+            if (iceStamina < iceStaminaFull)
+            {
+                yield return new WaitForSeconds(iceRechargeTime);
+                iceStamina += 1;
+                Debug.Log("IceStamina: " + iceStamina);
+            }
 
+            yield return null;
+        }
+        //StopCoroutine(windStaminaRefill());
+    }
+    */
 }

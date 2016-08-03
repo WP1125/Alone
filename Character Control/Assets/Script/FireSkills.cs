@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WindSkills : AimingScript
+public class FireSkills : AimingScript
 {
-    public LayerMask windLayerMask;
-    private int windStamina;
-    private int windStaminaFull;
-    private float windRechargeTime;
-    private bool windButtonDown;
-    private float windChargesTaken;
-    private float windDepleteRate;
+    public LayerMask fireLayerMask;
+    private int fireStamina;
+    private int fireStaminaFull;
+    private float fireRechargeTime;
+    private bool fireButtonDown;
+    private float fireChargesTaken;
+    private float fireDepleteRate;
     // Use this for initialization
     void Start()
     {
-        windStaminaFull = 60;
-        windStamina = windStaminaFull;
-        windRechargeTime = 0.5f;
-        InvokeRepeating("Recharge", 0, windRechargeTime);
-        windButtonDown = false;
-        windChargesTaken = 0.33f;
-        windDepleteRate = 0.2f;
+        fireStaminaFull = 60;
+        fireStamina = fireStaminaFull;
+        fireRechargeTime = 0.5f;
+        InvokeRepeating("Recharge", 0, fireRechargeTime);
+        fireButtonDown = false;
+        fireChargesTaken = 0.2f;
+        fireDepleteRate = 0.2f;
     }
 
     void OnEnable()
@@ -31,33 +31,30 @@ public class WindSkills : AimingScript
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (windStamina > (int)(windStaminaFull*windChargesTaken)) { leftClick(); }
+            if (fireStamina > (int)(fireStaminaFull * fireChargesTaken)) { leftClick(); }
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(rightClick());
-            windButtonDown = true;
+            fireButtonDown = true;
         }
         if (Input.GetMouseButtonUp(1))
         {
-            windButtonDown = false;
+            fireButtonDown = false;
         }
 
     }
     void leftClick()
     {
-        
+
         Rigidbody2D change = closest();
-        windStamina -= (int)(windStaminaFull/3);
-        if (change != null) {
+        fireStamina -= (int)(fireStaminaFull / 3);
+        if (change != null)
+        {
+
+            //launch fire ball
             
-            //what can be pushed
-            if (change.gameObject.layer == 10)
-            {
-                Vector2 direction = getPushDirection();
-                change.velocity = (direction * 10);
-            }
         }
     }
     IEnumerator rightClick()
@@ -65,15 +62,15 @@ public class WindSkills : AimingScript
         StartCoroutine("Pull");
         while (Input.GetMouseButton(1))
         {
-            windStamina -= 1;
-            yield return new WaitForSeconds(windDepleteRate);
-            Debug.Log(windStamina);
-            if (windStamina <= 0)
+            fireStamina -= 1;
+            yield return new WaitForSeconds(fireDepleteRate);
+            Debug.Log(fireStamina);
+            if (fireStamina <= 0)
             {
                 StopCoroutine("Pull");
                 break;
             }
-            //Debug.Log(windStamina);
+            //Debug.Log(fireStamina);
         }
         //Debug.Log("Stop");
         StopCoroutine("Pull");
@@ -100,10 +97,10 @@ public class WindSkills : AimingScript
     void Recharge()
     {
         //Debug.Log(Time.time);
-        if (windStamina < windStaminaFull && !windButtonDown)
+        if (fireStamina < fireStaminaFull && !fireButtonDown)
         {
-            windStamina += 1;
-            Debug.Log("Wind Stamina:" + windStamina);
+            fireStamina += 1;
+            Debug.Log("Fire Stamina:" + fireStamina);
         }
     }
     Rigidbody2D closest()
@@ -111,7 +108,7 @@ public class WindSkills : AimingScript
         Vector2 pp = getMainPlayerPosition();
         //Vector2 mp = getMousePosition();
         Vector2 rayCastDir = new Vector2(Mathf.Cos(getAnglePlus()), Mathf.Sin(getAnglePlus()));
-        RaycastHit2D hit = Physics2D.Raycast(pp, rayCastDir, MaxDistance, windLayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(pp, rayCastDir, MaxDistance, fireLayerMask);
         //Debug.Log(hit.rigidbody);
         return hit.rigidbody;
     }
@@ -123,6 +120,6 @@ public class WindSkills : AimingScript
     }
     Vector2 getPullDirection()
     {
-        return new Vector2(Mathf.Cos(getAnglePlus()+Mathf.PI), Mathf.Sin(getAnglePlus()+Mathf.PI));
+        return new Vector2(Mathf.Cos(getAnglePlus() + Mathf.PI), Mathf.Sin(getAnglePlus() + Mathf.PI));
     }
 }

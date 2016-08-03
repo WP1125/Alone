@@ -19,10 +19,10 @@ public class MouseAim : AimingScript {
         angle = getAnglePlus();
         if (distance <= MaxDistance)
         {
-            targetObject.position = new Vector3(MousePosition.x, MousePosition.y, 0);
+            targetObject.position = new Vector3(MousePosition.x, MousePosition.y, -1);
         }
         else {
-            targetObject.position = new Vector3(MaxDistance * Mathf.Cos(angle)+MainPlayer.transform.position.x, MaxDistance * Mathf.Sin(angle)+MainPlayer.transform.position.y, 0);
+            targetObject.position = new Vector3(MaxDistance * Mathf.Cos(angle)+MainPlayer.transform.position.x, MaxDistance * Mathf.Sin(angle)+MainPlayer.transform.position.y, -1);
         }
     }
 
