@@ -4,7 +4,7 @@ using System.Collections;
 public class IceSkills : AimingScript {
 
     public LayerMask iceLayerMask;
-    private int iceStamina;
+    public static int iceStamina;
     private int iceStaminaFull;
     private float iceRechargeTime;
     private bool iceButtonDown;
@@ -35,6 +35,7 @@ public class IceSkills : AimingScript {
         {
             StartCoroutine(rightClick());
             iceButtonDown = true;
+            PlayerPrefs.Save();
         }
         if (Input.GetMouseButtonUp(1))
         {
@@ -62,7 +63,7 @@ public class IceSkills : AimingScript {
         {
             iceStamina -= 1;
             yield return new WaitForSeconds(iceDepleteRate);
-            Debug.Log("IceStamina:" +iceStamina);
+            //Debug.Log("IceStamina:" +iceStamina);
             if (iceStamina <= 0)
             {
                 StopCoroutine("Ice");
@@ -97,7 +98,7 @@ public class IceSkills : AimingScript {
         if (iceStamina < iceStaminaFull && !iceButtonDown)
         {
             iceStamina += 1;
-            Debug.Log("iceStamina: " + iceStamina);
+            //Debug.Log("iceStamina: " + iceStamina);
         }
     }
 

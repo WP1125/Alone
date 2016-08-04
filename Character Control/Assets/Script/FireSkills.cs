@@ -4,7 +4,7 @@ using System.Collections;
 public class FireSkills : AimingScript
 {
     public LayerMask fireLayerMask;
-    private int fireStamina;
+    public static int fireStamina;
     private int fireStaminaFull;
     private float fireRechargeTime;
     private bool fireButtonDown;
@@ -54,7 +54,7 @@ public class FireSkills : AimingScript
         {
 
             //launch fire ball
-            
+            Debug.Log("launchfireball");
         }
     }
     IEnumerator rightClick()
@@ -64,7 +64,7 @@ public class FireSkills : AimingScript
         {
             fireStamina -= 1;
             yield return new WaitForSeconds(fireDepleteRate);
-            Debug.Log(fireStamina);
+            //Debug.Log(fireStamina);
             if (fireStamina <= 0)
             {
                 StopCoroutine("Pull");
@@ -100,7 +100,7 @@ public class FireSkills : AimingScript
         if (fireStamina < fireStaminaFull && !fireButtonDown)
         {
             fireStamina += 1;
-            Debug.Log("Fire Stamina:" + fireStamina);
+            //Debug.Log("Fire Stamina:" + fireStamina);
         }
     }
     Rigidbody2D closest()

@@ -4,7 +4,7 @@ using System.Collections;
 public class WindSkills : AimingScript
 {
     public LayerMask windLayerMask;
-    private int windStamina;
+    public static int windStamina;
     private int windStaminaFull;
     private float windRechargeTime;
     private bool windButtonDown;
@@ -67,7 +67,7 @@ public class WindSkills : AimingScript
         {
             windStamina -= 1;
             yield return new WaitForSeconds(windDepleteRate);
-            Debug.Log(windStamina);
+            //Debug.Log(windStamina);
             if (windStamina <= 0)
             {
                 StopCoroutine("Pull");
@@ -103,7 +103,7 @@ public class WindSkills : AimingScript
         if (windStamina < windStaminaFull && !windButtonDown)
         {
             windStamina += 1;
-            Debug.Log("Wind Stamina:" + windStamina);
+            //Debug.Log("Wind Stamina:" + windStamina);
         }
     }
     Rigidbody2D closest()

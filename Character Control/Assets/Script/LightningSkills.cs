@@ -4,7 +4,7 @@ using System.Collections;
 public class LightningSkills : AimingScript {
 
     public LayerMask lightningLayerMask;
-    private int lightningStamina;
+    public static int lightningStamina;
     private int lightningStaminaFull;
     private float lightningRechargeTime;
     private bool lightningButtonDown;
@@ -35,8 +35,7 @@ public class LightningSkills : AimingScript {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(lightningStamina);
-            Debug.Log(lightningStaminaFull * lightningChargesTaken);
+            //Debug.Log(lightningStamina);
             if (lightningStamina > lightningStaminaFull*lightningChargesTaken) { leftClick(); }
         }
         if (Input.GetMouseButton(1) && lightningStamina>lightningStaminaFull*lightningFullRequirement)
@@ -70,7 +69,7 @@ public class LightningSkills : AimingScript {
         //Debug.Log(chargeTime);
         if (chargeTime > fullChargeTime)
         {
-            Debug.Log("Fire full lightning");
+            //Debug.Log("Fire full lightning");
         }
     }
 
@@ -80,7 +79,7 @@ public class LightningSkills : AimingScript {
         if (lightningStamina < lightningStaminaFull && !lightningButtonDown)
         {
             lightningStamina += 1;
-            Debug.Log("Lightning Stamina:" + lightningStamina);
+            //Debug.Log("Lightning Stamina:" + lightningStamina);
         }
     }
 

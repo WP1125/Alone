@@ -68,10 +68,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\PlayerGUI.cs" />
     <Compile Include="Assets\Script\AimingScript.cs" />
     <Compile Include="Assets\Script\Elemental.cs" />
     <Compile Include="Assets\Script\ElementalScroll.cs" />
     <Compile Include="Assets\Script\FireSkills.cs" />
+    <Compile Include="Assets\Script\GameControl.cs" />
     <Compile Include="Assets\Script\IceSkills.cs" />
     <Compile Include="Assets\Script\Interactions.cs" />
     <Compile Include="Assets\Script\LightningSkills.cs" />
