@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : Staminas {
+public class Movement : MonoBehaviour {
     private Rigidbody2D body;
     public float maxSpeed;
     public float jumpForce;

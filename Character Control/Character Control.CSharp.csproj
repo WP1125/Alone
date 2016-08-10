@@ -68,7 +68,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerGUI.cs" />
     <Compile Include="Assets\Script\AimingScript.cs" />
     <Compile Include="Assets\Script\Elemental.cs" />
     <Compile Include="Assets\Script\ElementalScroll.cs" />
@@ -82,7 +81,7 @@
     <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\MovetoMouse.cs" />
     <Compile Include="Assets\Script\Parent.cs" />
-    <Compile Include="Assets\Script\Staminas.cs" />
+    <Compile Include="Assets\Script\PlayerGUI.cs" />
     <Compile Include="Assets\Script\Timers.cs" />
     <Compile Include="Assets\Script\WindSkills.cs" />
   </ItemGroup>

@@ -41,6 +41,7 @@ public class LightningSkills : AimingScript {
         if (Input.GetMouseButton(1) && lightningStamina>lightningStaminaFull*lightningFullRequirement)
         {
             chargeTime += Time.deltaTime;
+            Debug.Log("charging");
             lightningButtonDown = true;
         }
         if (Input.GetMouseButtonUp(1))
@@ -69,7 +70,8 @@ public class LightningSkills : AimingScript {
         //Debug.Log(chargeTime);
         if (chargeTime > fullChargeTime)
         {
-            //Debug.Log("Fire full lightning");
+            lightningStamina -= (int)(lightningStaminaFull * lightningFullRequirement);
+            Debug.Log("Fire full lightning");
         }
     }
 

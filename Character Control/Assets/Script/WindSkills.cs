@@ -10,6 +10,8 @@ public class WindSkills : AimingScript
     private bool windButtonDown;
     private float windChargesTaken;
     private float windDepleteRate;
+    private float pullForce;
+    private float pushForce;
     // Use this for initialization
     void Start()
     {
@@ -20,6 +22,8 @@ public class WindSkills : AimingScript
         windButtonDown = false;
         windChargesTaken = 0.33f;
         windDepleteRate = 0.2f;
+        pullForce = 50;
+        pushForce = 10;
     }
 
     void OnEnable()
@@ -56,7 +60,7 @@ public class WindSkills : AimingScript
             if (change.gameObject.layer == 10)
             {
                 Vector2 direction = getPushDirection();
-                change.velocity = (direction * 10);
+                change.velocity = (direction * pushForce);
             }
         }
     }
@@ -90,7 +94,7 @@ public class WindSkills : AimingScript
                 if (change.gameObject.layer == 10)
                 {
                     Vector2 direction = getPullDirection();
-                    change.AddForce((direction * 50));
+                    change.AddForce((direction * pullForce));
                 }
             }
             yield return null;
