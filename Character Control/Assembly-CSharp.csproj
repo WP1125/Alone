@@ -45,10 +45,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\RopeCreator2D\Scripts\Rope2DLineRendSetPoints.cs" />
+     <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DCircleGizmo.cs" />
+     <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DEndpointsGizmos.cs" />
+     <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseCutter.cs" />
+     <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseDrag.cs" />
+     <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DTear.cs" />
+     <Compile Include="Assets\Script\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Script\GameMaster.cs" />
      <Compile Include="Assets\Script\Interactions.cs" />
-     <Compile Include="Assets\Script\LookAtMouse.cs" />
+     <Compile Include="Assets\Script\Inventory\BaseItem.cs" />
+     <Compile Include="Assets\Script\Inventory\ExplosiveController.cs" />
+     <Compile Include="Assets\Script\Inventory\InventoryController.cs" />
+     <Compile Include="Assets\Script\Inventory\InventoryWindow.cs" />
+     <Compile Include="Assets\Script\Inventory\Item.cs" />
+     <Compile Include="Assets\Script\Inventory\SlectedItem.cs" />
      <Compile Include="Assets\Script\Movement.cs" />
+     <Compile Include="Assets\Script\Platform\DoorController.cs" />
+     <Compile Include="Assets\Script\Platform\PlatformController.cs" />
+     <Compile Include="Assets\Script\Platform\RopeController.cs" />
+     <Compile Include="Assets\Script\Platform\RopeHookController.cs" />
+     <Compile Include="Assets\Script\Player\BasePlayer.cs" />
+     <Compile Include="Assets\Script\Player\GameControl.cs" />
+     <Compile Include="Assets\Script\Player\Movement\Controller2D.cs" />
+     <Compile Include="Assets\Script\Player\Movement\Player.cs" />
+     <Compile Include="Assets\Script\Player\Movement\RaycastController.cs" />
+     <Compile Include="Assets\Script\Player\PlayerGUI.cs" />
+     <Compile Include="Assets\Script\SceneController.cs" />
+     <Compile Include="Assets\Script\Stats\BaseHP.cs" />
+     <Compile Include="Assets\Script\Stats\BaseStamina.cs" />
+     <Compile Include="Assets\Script\Stats\BaseStat.cs" />
+     <Compile Include="Assets\Script\Target Aim\AimingScript.cs" />
+     <Compile Include="Assets\Script\Target Aim\MouseAim.cs" />
+     <Compile Include="Assets\Script\Target Aim\Staminas.cs" />
      <Compile Include="Assets\Script\Timers.cs" />
+     <Compile Include="Assets\Script\Weapon\Elemental.cs" />
+     <Compile Include="Assets\Script\Weapon\FireSkills.cs" />
+     <Compile Include="Assets\Script\Weapon\IceSkills.cs" />
+     <Compile Include="Assets\Script\Weapon\LightningSkills.cs" />
+     <Compile Include="Assets\Script\Weapon\LookAtMouse.cs" />
+     <Compile Include="Assets\Script\Weapon\WindSkills.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour {
 	private double holdingTime=0.0;
 	public float speed;
 	public float jumpSpeed;
+    public float sprintMult = 1.1f;
 	public bool isGrounded;
 	public double shiftTimer;
 	public bool canSprint;
@@ -19,7 +20,7 @@ public class Movement : MonoBehaviour {
 	public bool sRelease;
 	public bool dRelease;
 	public bool aRelease;
-    private bool facingRight;
+    public bool facingRight;
 	public class Timer{
 		public Timer(double storeTime, double resetTime){
 			
@@ -30,7 +31,7 @@ public class Movement : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		body = GetComponent<Rigidbody2D>();
+		//body = GetComponent<Rigidbody2D>();
 		speed = 15f;
 		jumpSpeed = 30f;
 		isGrounded = false;
@@ -61,34 +62,35 @@ public class Movement : MonoBehaviour {
         }
 
 
-		body.velocity = new Vector2 (x * speed, body.velocity.y);
-		if (isGrounded) {
-			jump ();
-			sprint ();
-			crawl ();
+		//body.velocity = new Vector2 (x * speed, body.velocity.y);
+        //if (isGrounded) {
+        //    jump ();
+            sprint ();
+        //    crawl ();
 
-		}
+        //}
 
 		//print (body.velocity.x);
 	}
 
-	void jump(){
-		/**
-		if (Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.RightArrow)){
-			holdingTime += Time.deltaTime;
-			//print (holdingTime);
-		}
-		**/
-		//print (holdingTime);
-		if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space)) {
-				body.velocity = new Vector2 (body.velocity.x, jumpSpeed);
-			}
-		}
+    //void jump(){
+    //    /**
+    //    if (Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.RightArrow)){
+    //        holdingTime += Time.deltaTime;
+    //        //print (holdingTime);
+    //    }
+    //    **/
+    //    //print (holdingTime);
+    //    if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space)) {
+    //            body.velocity = new Vector2 (body.velocity.x, jumpSpeed);
+    //        }
+    //    }
 
 
 	void sprint(){
 		if (Input.GetKey (KeyCode.LeftShift) && shiftTimer > 1.0 && canSprint) {
-			body.velocity = new Vector2 ((float)((double)(body.velocity.x) * 2), body.velocity.y);
+            Vector3 v = GetComponent<Player>().velocity;
+			GetComponent<Player>().velocity = new Vector2 ((float)((double)(v.x) * sprintMult), v.y);
             GetComponent<Animator>().SetBool("Sprinting", true);
 			shiftTimer -= Time.deltaTime;
 			if (shiftTimer <= 1.0) {
@@ -180,9 +182,21 @@ public class Movement : MonoBehaviour {
 			//Debug.Log (sDown);
 
     void FlipSprite() {
+
+        //Flip children so that when enitre sprite is flipped children are flipped back to original position
+        for (int i = 0; i < transform.childCount; i++) 
+        {
+            Vector3 childFlip = transform.GetChild(i).localScale;
+            childFlip.x *= -1;
+            //childFlip.z *= -1;
+            transform.GetChild(i).localScale = childFlip;
+        }
+
+        //flip whole object including children sprites
         Vector3 flipper = transform.localScale;
         flipper.x *= -1;
         transform.localScale = flipper;
+
     }
 
 
