@@ -7,6 +7,8 @@ public class DoorController : MonoBehaviour {
     public float closeTimer;
     private float timeLeft;
     private bool timerStart;
+    public bool requiresKey;
+    public KeyController keyController;
 
 
     void Start()
@@ -32,6 +34,10 @@ public class DoorController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (requiresKey)
+            if(!keyController.HasAllKeys())
+                return;
+
         if (other.gameObject.name == "Player")
         {
             timerStart = false;
@@ -42,6 +48,10 @@ public class DoorController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
+        if (requiresKey)
+            if (!keyController.HasAllKeys())
+                return;
+
         if (other.gameObject.name == "Player")
         {
             timerStart = true;

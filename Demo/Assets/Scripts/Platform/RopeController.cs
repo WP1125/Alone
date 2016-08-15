@@ -12,6 +12,7 @@ public class RopeController : RaycastController {
 
     private Player playerScript;
     private BoxCollider2D playerCollider;
+    private bool isGrabbing;
 
     // Use this for initialization
     public override void Start()
@@ -21,6 +22,7 @@ public class RopeController : RaycastController {
         playerCollider = player.GetComponent<BoxCollider2D>();
         oldPosition = transform.position;
         oldGravity = playerScript.gravity;
+        isGrabbing = false;
     }
 	
 	// Update is called once per frame
@@ -31,6 +33,31 @@ public class RopeController : RaycastController {
         velocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
         oldPosition = newPos;
  
+        if (isGrabbing)
+        {
+            playerScript.gravity = .0f;
+            player.transform.position = playerHook.transform.position;
+            playerScript.enabled = false;
+            playerCollider.enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && ropeInRange)
+        {
+            if (isGrabbing)
+            {
+                isGrabbing = false;
+                playerScript.gravity = oldGravity;
+                playerScript.enabled = true;
+                playerCollider.enabled = true;
+            }
+            else
+            {
+                isGrabbing = true;
+            }
+
+        }
+
+        /*
         if (Input.GetKey(KeyCode.E) && ropeInRange)
         {   
             playerScript.gravity        = .0f;
@@ -45,7 +72,7 @@ public class RopeController : RaycastController {
             playerCollider.enabled  = true;
             //player.GetComponent<Controller2D>().Move(velocity * Time.deltaTime, input);
         }
-
+        */
     }
 
 }

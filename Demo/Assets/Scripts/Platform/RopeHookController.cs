@@ -20,7 +20,6 @@ public class RopeHookController : MonoBehaviour {
     {
         if (other.gameObject.name == "Player")
         {
-            print("entered");
             ropeController.ropeInRange = true;
         }
     }
@@ -29,7 +28,6 @@ public class RopeHookController : MonoBehaviour {
     {
         if (other.gameObject.name == "Player")
         {
-            print("Exit");
             ropeController.ropeInRange = false;
         }
     }

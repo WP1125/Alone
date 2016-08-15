@@ -55,6 +55,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -75,13 +81,17 @@
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory\SlectedItem.cs" />
     <Compile Include="Assets\Scripts\Platform\DoorController.cs" />
+    <Compile Include="Assets\Scripts\Platform\Key.cs" />
+    <Compile Include="Assets\Scripts\Platform\KeyController.cs" />
     <Compile Include="Assets\Scripts\Platform\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Platform\RopeController.cs" />
     <Compile Include="Assets\Scripts\Platform\RopeHookController.cs" />
     <Compile Include="Assets\Scripts\Player\BasePlayer.cs" />
+    <Compile Include="Assets\Scripts\Player\GameControl.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\Controller2D.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\Player.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\RaycastController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerGUI.cs" />
     <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\Stats\BaseHP.cs" />
     <Compile Include="Assets\Scripts\Stats\BaseStamina.cs" />
@@ -90,6 +100,9 @@
     <Compile Include="Assets\Scripts\Target Aim\MouseAim.cs" />
     <Compile Include="Assets\Scripts\Target Aim\Staminas.cs" />
     <Compile Include="Assets\Scripts\Weapon\Elemental.cs" />
+    <Compile Include="Assets\Scripts\Weapon\FireSkills.cs" />
+    <Compile Include="Assets\Scripts\Weapon\IceSkills.cs" />
+    <Compile Include="Assets\Scripts\Weapon\LightningSkills.cs" />
     <Compile Include="Assets\Scripts\Weapon\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\Weapon\WindSkills.cs" />
   </ItemGroup>
