@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class LookAtMouse : MonoBehaviour {
-	private Rigidbody2D body;
 	public Vector3 mousePos;
     private bool facingRight;
 
@@ -13,7 +12,6 @@ public class LookAtMouse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		body = GetComponent<Rigidbody2D>();
 	
 	}
 	void FixedUpdate(){
