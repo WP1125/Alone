@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
 
     private bool doubleJump;
 
+    public bool facingRight = true;
+
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -47,6 +49,32 @@ public class Player : MonoBehaviour {
         //Get player input and wall direction
 		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
+
+
+
+        if (input.x != 0 && !GetComponent<Animator>().GetBool("Moving"))
+        {
+            GetComponent<Animator>().SetBool("Moving", true);
+        }
+
+        if (input.x == 0 && GetComponent<Animator>().GetBool("Moving"))
+        {
+            GetComponent<Animator>().SetBool("Moving", false);
+        }
+
+        if (input.x < 0 && facingRight)
+        {
+            facingRight = false;
+            FlipSprite();
+        }
+
+        if (input.x > 0 && !facingRight)
+        {
+            facingRight = true;
+            FlipSprite();
+        }
+
+
 
         float targetVelocityX = input.x * moveSpeed;
         if (Input.GetKey(KeyCode.S))
@@ -118,4 +146,26 @@ public class Player : MonoBehaviour {
 			velocity.y = 0;
 
 	}
+
+
+
+
+    void FlipSprite()
+    {
+
+        //Flip children so that when enitre sprite is flipped children are flipped back to original position
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Vector3 childFlip = transform.GetChild(i).localScale;
+            childFlip.x *= -1;
+            //childFlip.z *= -1;
+            transform.GetChild(i).localScale = childFlip;
+        }
+
+        //flip whole object including children sprites
+        Vector3 flipper = transform.localScale;
+        flipper.x *= -1;
+        transform.localScale = flipper;
+
+    }
 }

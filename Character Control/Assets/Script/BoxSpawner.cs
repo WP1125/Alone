@@ -7,6 +7,7 @@ public class BoxSpawner : MonoBehaviour {
     public GameObject Box;
     public float maxWait = 5;
     public float minWait = 1;
+    public int maxBoxCount = 5;
     private float currWait = 0;
     private float spawnBox = 0;
 	// Use this for initialization

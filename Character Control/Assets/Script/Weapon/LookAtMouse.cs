@@ -39,7 +39,7 @@ public class LookAtMouse : MonoBehaviour {
             FlipSprite();
         }
 
-        if (!transform.parent.GetComponent<Movement>().facingRight)
+        if (!transform.parent.GetComponent<Player>().facingRight)
         {
             Quaternion neg;
             neg = transform.rotation;
@@ -49,7 +49,7 @@ public class LookAtMouse : MonoBehaviour {
 
 
 
-	}
+    }
 
 
     void FlipSprite() {
