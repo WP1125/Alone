@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 
 
-
+        //Animation change depending on movement type
         if (input.x != 0 && !GetComponent<Animator>().GetBool("Moving"))
         {
             GetComponent<Animator>().SetBool("Moving", true);
@@ -72,6 +72,16 @@ public class Player : MonoBehaviour {
         {
             facingRight = true;
             FlipSprite();
+        }
+
+        if (input.x != 0 && Input.GetKey(KeyCode.LeftShift) && !GetComponent<Animator>().GetBool("Sprinting"))
+        {
+            GetComponent<Animator>().SetBool("Sprinting",true);
+        }
+
+        if (GetComponent<Animator>().GetBool("Sprinting") && !Input.GetKey(KeyCode.LeftShift))
+        {
+            GetComponent<Animator>().SetBool("Sprinting", false);
         }
 
 
