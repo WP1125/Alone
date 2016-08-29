@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -18,7 +18,7 @@ public class SceneController : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.E)&& loadSceneEnable)
         {
-            SceneManager.LoadScene(nextScene);
+            Application.LoadLevel("nextScene");
         }
     }
 
