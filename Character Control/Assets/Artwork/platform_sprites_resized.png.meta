@@ -1,0 +1,782 @@
+fileFormatVersion: 2
+guid: 7a4d6de503bc7ad449caeadf6fe722e1
+timeCreated: 1472581158
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: platform_sprites_resized_0
+    21300002: platform_sprites_resized_1
+    21300004: platform_sprites_resized_2
+    21300006: platform_sprites_resized_3
+    21300008: platform_sprites_resized_4
+    21300010: platform_sprites_resized_5
+    21300012: platform_sprites_resized_6
+    21300014: platform_sprites_resized_7
+    21300016: platform_sprites_resized_8
+    21300018: platform_sprites_resized_9
+    21300020: platform_sprites_resized_10
+    21300022: platform_sprites_resized_11
+    21300024: platform_sprites_resized_12
+    21300026: platform_sprites_resized_13
+    21300028: platform_sprites_resized_14
+    21300030: platform_sprites_resized_15
+    21300032: platform_sprites_resized_16
+    21300034: platform_sprites_resized_17
+    21300036: platform_sprites_resized_18
+    21300038: platform_sprites_resized_19
+    21300040: platform_sprites_resized_20
+    21300042: platform_sprites_resized_21
+    21300044: platform_sprites_resized_22
+    21300046: platform_sprites_resized_23
+    21300048: platform_sprites_resized_24
+    21300050: platform_sprites_resized_25
+    21300052: platform_sprites_resized_26
+    21300054: platform_sprites_resized_27
+    21300056: platform_sprites_resized_28
+    21300058: platform_sprites_resized_29
+    21300060: platform_sprites_resized_30
+    21300062: platform_sprites_resized_31
+    21300064: platform_sprites_resized_32
+    21300066: platform_sprites_resized_33
+    21300068: platform_sprites_resized_34
+    21300070: platform_sprites_resized_35
+    21300072: platform_sprites_resized_36
+    21300074: platform_sprites_resized_37
+    21300076: platform_sprites_resized_38
+    21300078: platform_sprites_resized_39
+    21300080: platform_sprites_resized_40
+    21300082: platform_sprites_resized_41
+    21300084: platform_sprites_resized_42
+    21300086: platform_sprites_resized_43
+    21300088: platform_sprites_resized_44
+    21300090: platform_sprites_resized_45
+    21300092: platform_sprites_resized_46
+    21300094: platform_sprites_resized_47
+    21300096: platform_sprites_resized_48
+    21300098: platform_sprites_resized_49
+    21300100: platform_sprites_resized_50
+    21300102: platform_sprites_resized_51
+    21300104: platform_sprites_resized_52
+    21300106: platform_sprites_resized_53
+    21300108: platform_sprites_resized_54
+    21300110: platform_sprites_resized_55
+    21300112: platform_sprites_resized_56
+    21300114: platform_sprites_resized_57
+    21300116: platform_sprites_resized_58
+    21300118: platform_sprites_resized_59
+    21300120: platform_sprites_resized_60
+    21300122: platform_sprites_resized_61
+    21300124: platform_sprites_resized_62
+    21300126: platform_sprites_resized_63
+    21300128: platform_sprites_resized_64
+    21300130: platform_sprites_resized_65
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: platform_sprites_resized_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1532
+        width: 125
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_1
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 1532
+        width: 125
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_2
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 1532
+        width: 125
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_3
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1532
+        width: 125
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_4
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1532
+        width: 104
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_5
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 1535
+        width: 122
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_6
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 1535
+        width: 152
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_7
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 1532
+        width: 134
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_8
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1340
+        width: 98
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_9
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1340
+        width: 116
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_10
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1343
+        width: 155
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_11
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 1340
+        width: 122
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_12
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1340
+        width: 125
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_13
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 1340
+        width: 128
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_14
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 1340
+        width: 161
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_15
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 1340
+        width: 155
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_16
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1148
+        width: 125
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_17
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1148
+        width: 125
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_18
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 1148
+        width: 128
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_19
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1148
+        width: 128
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_20
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1148
+        width: 131
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_21
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 1148
+        width: 128
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_22
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 1148
+        width: 146
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_23
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 1148
+        width: 158
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_24
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 956
+        width: 134
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_25
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 956
+        width: 134
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_26
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 956
+        width: 122
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_27
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 956
+        width: 122
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_28
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 956
+        width: 125
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_29
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 956
+        width: 140
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_30
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 956
+        width: 143
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_31
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 956
+        width: 116
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_32
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 764
+        width: 122
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_33
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 764
+        width: 104
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_34
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 764
+        width: 68
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_35
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 764
+        width: 80
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_36
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 764
+        width: 116
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_37
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 767
+        width: 101
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_38
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 767
+        width: 62
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_39
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 767
+        width: 83
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_40
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 572
+        width: 140
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_41
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 572
+        width: 137
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_42
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 572
+        width: 116
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_43
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 572
+        width: 101
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_44
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 572
+        width: 89
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_45
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 575
+        width: 131
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_46
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 578
+        width: 140
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_47
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 575
+        width: 137
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_48
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 380
+        width: 110
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_49
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 386
+        width: 110
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_50
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 383
+        width: 98
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_51
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 380
+        width: 101
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_52
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 380
+        width: 110
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_53
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 386
+        width: 104
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_54
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 380
+        width: 92
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_55
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 380
+        width: 92
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_56
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 188
+        width: 101
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_57
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 188
+        width: 95
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_58
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 188
+        width: 101
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_59
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 188
+        width: 104
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_60
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 188
+        width: 107
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_61
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 188
+        width: 104
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_62
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 188
+        width: 98
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_63
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 188
+        width: 92
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_64
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 50
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: platform_sprites_resized_65
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 11
+        width: 638
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

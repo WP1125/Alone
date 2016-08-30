@@ -52,43 +52,63 @@ public class Player : MonoBehaviour {
 
 
         //Animation change depending on movement type
-        if (input.x != 0 && !GetComponent<Animator>().GetBool("Moving"))
-        {
-            GetComponent<Animator>().SetBool("Moving", true);
-        }
 
-        if (input.x == 0 && GetComponent<Animator>().GetBool("Moving"))
+        Animator playerAnim = GetComponent<Animator>();
+        if (playerAnim != null)
         {
-            GetComponent<Animator>().SetBool("Moving", false);
-        }
+            if (input.x != 0 && !playerAnim.GetBool("Moving"))
+            {
+                playerAnim.SetBool("Moving", true);
+            }
 
-        if (input.x < 0 && facingRight)
-        {
-            facingRight = false;
-            FlipSprite();
-        }
+            if (input.x == 0 && playerAnim.GetBool("Moving"))
+            {
+                playerAnim.SetBool("Moving", false);
+            }
 
-        if (input.x > 0 && !facingRight)
-        {
-            facingRight = true;
-            FlipSprite();
-        }
+            if (input.x < 0 && facingRight)
+            {
+                facingRight = false;
+                FlipSprite();
+            }
 
-        if (input.x != 0 && Input.GetKey(KeyCode.LeftShift) && !GetComponent<Animator>().GetBool("Sprinting"))
-        {
-            GetComponent<Animator>().SetBool("Sprinting",true);
-        }
+            if (input.x > 0 && !facingRight)
+            {
+                facingRight = true;
+                FlipSprite();
+            }
 
-        if (GetComponent<Animator>().GetBool("Sprinting") && !Input.GetKey(KeyCode.LeftShift))
-        {
-            GetComponent<Animator>().SetBool("Sprinting", false);
-        }
+            if (input.x != 0 && Input.GetKey(KeyCode.LeftShift) && !playerAnim.GetBool("Sprinting"))
+            {
+                playerAnim.SetBool("Sprinting", true);
+            }
 
+            if (playerAnim.GetBool("Sprinting") && !Input.GetKey(KeyCode.LeftShift))
+            {
+                playerAnim.SetBool("Sprinting", false);
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.S) && playerAnim.GetBool("Crouching") == false)
+            {
+                playerAnim.SetBool("Crouching", true);
+            }
+
+            if (Input.GetKeyUp(KeyCode.S) && playerAnim.GetBool("Crouching") == true)
+            {
+                playerAnim.SetBool("Crouching", false);
+            }
+
+        }
 
 
         float targetVelocityX = input.x * moveSpeed;
-        if (Input.GetKey(KeyCode.S))
-            targetVelocityX = targetVelocityX * crouchMultiplier;
+
+        //if (Input.GetKey(KeyCode.S) && input.x != 0)
+        //{
+        //    targetVelocityX = targetVelocityX * crouchMultiplier;
+        //}
+            
         //Smoothen acceleration
         velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 

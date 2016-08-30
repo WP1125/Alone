@@ -7,6 +7,7 @@ public class DoorController : MonoBehaviour {
     public float closeTimer;
     private float timeLeft;
     private bool timerStart;
+    public float ReqMass = 2.0f;
 
 
     void Start()
@@ -32,7 +33,8 @@ public class DoorController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player")
+
+        if(other.gameObject.name == "Player" || other.gameObject.tag == "PickUp")
         {
             timerStart = false;
             timeLeft = closeTimer;
@@ -42,7 +44,7 @@ public class DoorController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player" || other.gameObject.tag == "PickUp")
         {
             timerStart = true;
         }
