@@ -1,28 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class KeyController : MonoBehaviour {
-    public GameObject[] keys;
+    public int numKeysRequired;
+    private List<BaseItem> playerInventory;
+    public InventoryWindow inventoryWindow;
+    public bool allKeysAquired;
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
+    // Use this for initialization
+    void Start () {
+        BasePlayer basePlayerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();
+        playerInventory = basePlayerScript.ReturnPlayerInventory();
+        allKeysAquired = false;
+    }
 	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
-
     public bool HasAllKeys()
     {
-        foreach (GameObject key in keys)
+        int keyCount = 0;
+        List<int> toDelete = new List<int> (numKeysRequired);
+
+        //BaseItem item;
+        for (int i=0; i< playerInventory.Count; i++)
         {
-            if (key.activeInHierarchy)
+            if (playerInventory[i].ItemName == "Key")
             {
-                return false;
+                keyCount++;
+                toDelete.Add(i);
             }
         }
-        return true;
+        if (keyCount == numKeysRequired)
+        {
+            foreach (int index in toDelete)
+            {
+                playerInventory[index].ItemName = "Empty";
+                inventoryWindow.ActivateSlot(index, false);
+            }
+            allKeysAquired = true;
+        }
+
+        return allKeysAquired;
     }
 }

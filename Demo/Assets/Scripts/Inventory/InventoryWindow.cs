@@ -74,16 +74,27 @@ public class InventoryWindow : MonoBehaviour {
             {
                 inventorySlots[i].name = i.ToString();
                 //add icon;
-                inventorySlots[i].transform.GetChild(0).gameObject.SetActive(true);
-                inventorySlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ReturnItemIcon(playerInventory[i]);
+                ActivateSlot(i, true);
             }
         }
+    }
+
+    public void ActivateSlot(int i, bool isActive)
+    {
+        inventorySlots[i].transform.GetChild(0).gameObject.SetActive(isActive);
+        inventorySlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ReturnItemIcon(playerInventory[i]);
     }
 
     private Sprite ReturnItemIcon(BaseItem item)
     {
         Sprite icon = new Sprite();
         Sprite [] spriteCollection = Resources.LoadAll<Sprite>("Sprites/Items");
+
+        if (item.ItemName == "Key")
+        {
+            return spriteCollection[140];
+        }
+
         if (item.ItemType == BaseItem.ItemTypes.POTION)
         {
             //icon = Resources.Load<Sprite>("Sprites/Items/68043_95");

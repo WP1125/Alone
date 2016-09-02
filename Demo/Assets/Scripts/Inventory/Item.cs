@@ -80,6 +80,10 @@ public class Item : MonoBehaviour {
         Sprite icon = new Sprite();
         Sprite[] spriteCollection = Resources.LoadAll<Sprite>("Sprites/Items");
 
+        if (item.ItemName == "Key")
+        {
+            return spriteCollection[140];
+        }
         //print(spriteCollection.count);
         if (item.ItemType == BaseItem.ItemTypes.POTION)
             icon = spriteCollection[95];
