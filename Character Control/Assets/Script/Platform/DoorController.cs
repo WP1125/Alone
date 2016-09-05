@@ -7,7 +7,6 @@ public class DoorController : MonoBehaviour {
     public float closeTimer;
     private float timeLeft;
     private bool timerStart;
-    public float ReqMass = 2.0f;
 
 
     void Start()
