@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     public float gravity;
     public Vector3 velocity;
     float velocityXSmoothing;
+    private bool holding = false;
+    private GameObject heldObject;
 
     //variables for ground jumping
     public float maxJumpHeight      = 4;
@@ -177,6 +179,27 @@ public class Player : MonoBehaviour {
 
 	}
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "PickUp")
+        {
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
+            {
+                if (holding)
+                {
+                    holding = false;
+                    Drop(heldObject);
+                }
+                else
+                {
+                    holding = true;
+                    Grab(other.gameObject);
+                }
+            }
+        }
+    }
+    
+
 
 
 
@@ -196,6 +219,30 @@ public class Player : MonoBehaviour {
         Vector3 flipper = transform.localScale;
         flipper.x *= -1;
         transform.localScale = flipper;
+
+    }
+
+
+    void Grab(GameObject other)
+    {
+        heldObject = other;
+        other.transform.parent = transform;
+
+
+        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
+
+        other.transform.localPosition = new Vector3(1.4f, 0f, 0f);
+
+    }
+
+    void Drop(GameObject other)
+    {
+        other.transform.parent = null;
+        heldObject = null;
+
+        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+        rb.isKinematic = false;
 
     }
 }

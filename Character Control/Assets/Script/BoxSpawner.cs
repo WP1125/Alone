@@ -18,11 +18,12 @@ public class BoxSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         currWait+= Time.deltaTime;
-        if(currWait > spawnBox)
+        if(currWait > spawnBox && transform.childCount < maxBoxCount)
         {
             currWait = 0;
             spawnBox = Random.Range(minWait, maxWait);
-            Instantiate(Box, transform.position, Quaternion.identity);
+            GameObject SpawnedBox = Instantiate(Box, transform.position, Quaternion.identity) as GameObject;
+            SpawnedBox.transform.parent = transform;
         }
 	}
 }
