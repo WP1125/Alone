@@ -12,7 +12,9 @@ public class Player : MonoBehaviour {
     public Vector3 velocity;
     float velocityXSmoothing;
     private bool holding = false;
+    private ArrayList inRangeObjects = new ArrayList();
     private GameObject heldObject;
+    private Vector3 prevScale;
 
     //variables for ground jumping
     public float maxJumpHeight      = 4;
@@ -104,6 +106,37 @@ public class Player : MonoBehaviour {
         }
 
 
+        //Grab
+
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
+            {
+                if (holding)
+                {
+                    holding = false;
+                    Drop(heldObject);
+                }
+                else if(inRangeObjects.Count > 0 && !Input.GetMouseButtonDown(0))
+                {
+                    holding = true;
+                    GameObject closest = inRangeObjects[0] as GameObject;
+                    float shortestDist = Vector3.Distance(closest.transform.position, transform.position);
+                    foreach(GameObject g in inRangeObjects)
+                        {
+                            float currDist = Vector3.Distance(g.transform.position, transform.position);
+                            if (currDist < shortestDist)
+                            {
+                                closest = g;
+                                shortestDist = currDist;
+                            }
+                        }
+                    Grab(closest);
+                }
+            }
+
+
+
+
+
         float targetVelocityX = input.x * moveSpeed;
 
         //if (Input.GetKey(KeyCode.S) && input.x != 0)
@@ -179,23 +212,20 @@ public class Player : MonoBehaviour {
 
 	}
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "PickUp")
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
-            {
-                if (holding)
-                {
-                    holding = false;
-                    Drop(heldObject);
-                }
-                else
-                {
-                    holding = true;
-                    Grab(other.gameObject);
-                }
-            }
+            inRangeObjects.Add(other.gameObject);
+
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "PickUp")
+        {
+            inRangeObjects.Remove(other.gameObject);
         }
     }
     
@@ -226,7 +256,9 @@ public class Player : MonoBehaviour {
     void Grab(GameObject other)
     {
         heldObject = other;
+        prevScale = other.transform.localScale;
         other.transform.parent = transform;
+        
 
 
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
@@ -242,6 +274,8 @@ public class Player : MonoBehaviour {
         heldObject = null;
 
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+        inRangeObjects.Remove(other);
+        other.transform.localScale = prevScale;
         rb.isKinematic = false;
 
     }
