@@ -113,7 +113,12 @@ public class Player : MonoBehaviour {
                 if (holding)
                 {
                     holding = false;
+                if (heldObject.tag == "Explosive")
+                {
+                    heldObject.GetComponentInChildren<ExplosiveController>().startTime = true;
+                }
                     Drop(heldObject);
+                
                 }
                 else if(inRangeObjects.Count > 0 && !Input.GetMouseButtonDown(0))
                 {
@@ -215,7 +220,7 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collision");
-        if (other.tag == "PickUp")
+        if (other.tag == "PickUp" || other.tag == "Explosive")
         {
             inRangeObjects.Add(other.gameObject);
         }
@@ -234,7 +239,7 @@ public class Player : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "PickUp")
+        if (other.tag == "PickUp" || other.tag == "Explosive")
         {
             inRangeObjects.Remove(other.gameObject);
         }
