@@ -214,10 +214,21 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collision");
         if (other.tag == "PickUp")
         {
             inRangeObjects.Add(other.gameObject);
+        }
 
+        if (other.tag == "Collapse")
+        {
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.tag == "Spikes")
+        {
+            Debug.Log("Reset to checkpoint");
+            //Change when checkpoints implemented
         }
     }
 
