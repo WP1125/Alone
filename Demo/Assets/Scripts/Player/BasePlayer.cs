@@ -26,6 +26,14 @@ public class BasePlayer : MonoBehaviour {
         }
 	}
 
+    void Update()
+    {
+        if (playerHP == 0)
+        {
+            print("Game Over!");
+        }
+    }
+
     public void increaseHP(int amount)
     {
         playerHP += amount;

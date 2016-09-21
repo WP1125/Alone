@@ -41,6 +41,11 @@ public class ExplosiveController : MonoBehaviour {
 
 	}
 
+    public void decreaseHP(int amount)
+    {
+        itemHP -= amount;
+    }
+
     void explode()
     {
         if (playerInRange)

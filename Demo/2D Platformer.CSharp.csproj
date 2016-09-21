@@ -60,12 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RopeCreator2D\Scripts\Rope2DLineRendSetPoints.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DCircleGizmo.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DEndpointsGizmos.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseCutter.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseDrag.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DTear.cs" />
+    <Compile Include="Assets\Scripts\AI\Bullet.cs" />
+    <Compile Include="Assets\Scripts\AI\Shooting.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GameMaster.cs" />
     <Compile Include="Assets\Scripts\Inventory\BaseItem.cs" />
