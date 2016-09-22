@@ -17,10 +17,13 @@ public class DummyScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-
-        if (other.gameObject.tag == "PickUp" && other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude > killVelocity)
+        Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            Destroy(gameObject);
+            if (rb.velocity.magnitude * rb.gravityScale > killVelocity)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
