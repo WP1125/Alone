@@ -4,19 +4,24 @@ using System.Collections;
 public class ExplosiveController : MonoBehaviour {
 
     public GameObject targetExplosive;
-    public BasePlayer player;
+    private BasePlayer player;
     public CircleCollider2D impactArea;
 
     public int itemHP = 20;
     public int explosionDamage;
 
-    public float explosionTimer = 0.5f;
+    public float explosionTimer = 0.05f;
     private float explosionTime;
     private bool explodeSignal;
     private bool playerInRange;
 
+    public bool isProjectile;
+    public int playerColliderCount;
+    int collisionCount;
+
 
     void Start () {
+        player = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<BasePlayer>();
         playerInRange = false;
         impactArea.enabled = false;
         explodeSignal = false;
@@ -57,7 +62,6 @@ public class ExplosiveController : MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        print("stay");
         if (other.gameObject.name == "Player")
         {
             playerInRange = true;
@@ -68,7 +72,21 @@ public class ExplosiveController : MonoBehaviour {
     {
         if (other.gameObject.name == "Player")
         {
-            playerInRange = true;
+            collisionCount += 1;
+
+            if (collisionCount == playerColliderCount)
+            {
+                playerInRange = true;
+                if (isProjectile)
+                {
+                    decreaseHP(itemHP);
+                }
+
+            }
+        }
+        else
+        {
+            decreaseHP(itemHP);
         }
     }
 

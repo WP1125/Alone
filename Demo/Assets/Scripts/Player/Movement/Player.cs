@@ -146,10 +146,10 @@ public class Player : MonoBehaviour
 
         float targetVelocityX = input.x * moveSpeed;
 
-        //if (Input.GetKey(KeyCode.S) && input.x != 0)
-        //{
-        //    targetVelocityX = targetVelocityX * crouchMultiplier;
-        //}
+        if (Input.GetKey(KeyCode.S) && input.x != 0)
+        {
+            targetVelocityX = targetVelocityX * crouchMultiplier;
+        }
 
         //Smoothen acceleration
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
