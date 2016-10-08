@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BoxScript.cs" />
+     <Compile Include="Assets\CheckpointScript.cs" />
      <Compile Include="Assets\DummyScript.cs" />
      <Compile Include="Assets\Explosion.cs" />
      <Compile Include="Assets\RopeCreator2D\Scripts\Rope2DLineRendSetPoints.cs" />

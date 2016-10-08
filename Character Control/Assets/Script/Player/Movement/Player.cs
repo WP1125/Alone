@@ -113,11 +113,11 @@ public class Player : MonoBehaviour {
                 if (holding)
                 {
                     holding = false;
-                if (heldObject.tag == "Explosive")
-                {
-                    heldObject.GetComponentInChildren<ExplosiveController>().startTime = true;
-                }
-                    Drop(heldObject);
+                    if (heldObject.tag == "Explosive")
+                    {
+                        heldObject.GetComponentInChildren<ExplosiveController>().startTime = true;
+                    }
+                        Drop(heldObject);
                 
                 }
                 else if(inRangeObjects.Count > 0 && !Input.GetMouseButtonDown(0))
@@ -232,6 +232,7 @@ public class Player : MonoBehaviour {
 
         if (other.tag == "Spikes")
         {
+            GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>().PlayerDeath = true;
             Debug.Log("Reset to checkpoint");
             //Change when checkpoints implemented
         }

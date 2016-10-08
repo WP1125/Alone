@@ -22,8 +22,8 @@ public class WindSkills : AimingScript
         windButtonDown = false;
         windChargesTaken = 0.33f;
         windDepleteRate = 0.2f;
-        pullForce = 50;
-        pushForce = 10;
+        pullForce = 80;
+        pushForce = 20;
     }
 
     void OnEnable()

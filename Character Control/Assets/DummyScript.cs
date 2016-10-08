@@ -22,7 +22,7 @@ public class DummyScript : MonoBehaviour {
         {
             if (rb.velocity.magnitude * rb.gravityScale > killVelocity)
             {
-                Destroy(gameObject);
+                this.enabled = false;
             }
         }
     }
