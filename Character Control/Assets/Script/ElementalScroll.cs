@@ -87,7 +87,6 @@ public class ElementalScroll : MonoBehaviour
             }
                 
             }
-            yield return null;
         }
 
     }

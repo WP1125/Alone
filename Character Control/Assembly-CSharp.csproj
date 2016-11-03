@@ -45,36 +45,46 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\AimingScript.cs" />
-     <Compile Include="Assets\Script\BaseItem.cs" />
-     <Compile Include="Assets\Script\BasePlayer.cs" />
+     <Compile Include="Assets\Artwork\Max_Run_Cycle\Platform\DoorController.cs" />
+     <Compile Include="Assets\Artwork\Max_Run_Cycle\Platform\KeyController.cs" />
      <Compile Include="Assets\Script\BoxScript.cs" />
      <Compile Include="Assets\Script\BoxSpawner.cs" />
+     <Compile Include="Assets\Script\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Script\CheckpointScript.cs" />
      <Compile Include="Assets\Script\DummyScript.cs" />
-     <Compile Include="Assets\Script\Elemental.cs" />
      <Compile Include="Assets\Script\ElementalScroll.cs" />
      <Compile Include="Assets\Script\Explosion.cs" />
-     <Compile Include="Assets\Script\ExplosiveController.cs" />
-     <Compile Include="Assets\Script\FireSkills.cs" />
-     <Compile Include="Assets\Script\GameControl.cs" />
      <Compile Include="Assets\Script\GameMaster.cs" />
-     <Compile Include="Assets\Script\IceSkills.cs" />
      <Compile Include="Assets\Script\Interactions.cs" />
-     <Compile Include="Assets\Script\InventoryController.cs" />
-     <Compile Include="Assets\Script\InventoryWindow.cs" />
-     <Compile Include="Assets\Script\Item.cs" />
-     <Compile Include="Assets\Script\LightningSkills.cs" />
-     <Compile Include="Assets\Script\LookAtMouse.cs" />
-     <Compile Include="Assets\Script\MouseAim.cs" />
+     <Compile Include="Assets\Script\Inventory\BaseItem.cs" />
+     <Compile Include="Assets\Script\Inventory\ExplosiveController.cs" />
+     <Compile Include="Assets\Script\Inventory\InventoryController.cs" />
+     <Compile Include="Assets\Script\Inventory\InventoryWindow.cs" />
+     <Compile Include="Assets\Script\Inventory\Item.cs" />
+     <Compile Include="Assets\Script\Inventory\SlectedItem.cs" />
      <Compile Include="Assets\Script\Movement.cs" />
+     <Compile Include="Assets\Script\Movement\Controller2D.cs" />
+     <Compile Include="Assets\Script\Movement\Player.cs" />
+     <Compile Include="Assets\Script\Movement\RaycastController.cs" />
      <Compile Include="Assets\Script\MovetoMouse.cs" />
      <Compile Include="Assets\Script\Parent.cs" />
-     <Compile Include="Assets\Script\PlayerGUI.cs" />
+     <Compile Include="Assets\Script\Player\BasePlayer.cs" />
+     <Compile Include="Assets\Script\Player\GameControl.cs" />
+     <Compile Include="Assets\Script\Player\PlayerGUI.cs" />
      <Compile Include="Assets\Script\SceneController.cs" />
-     <Compile Include="Assets\Script\SlectedItem.cs" />
+     <Compile Include="Assets\Script\Stats\BaseHP.cs" />
+     <Compile Include="Assets\Script\Stats\BaseStamina.cs" />
+     <Compile Include="Assets\Script\Stats\BaseStat.cs" />
+     <Compile Include="Assets\Script\Target Aim\AimingScript.cs" />
+     <Compile Include="Assets\Script\Target Aim\MouseAim.cs" />
+     <Compile Include="Assets\Script\Target Aim\Staminas.cs" />
      <Compile Include="Assets\Script\Timers.cs" />
-     <Compile Include="Assets\Script\WindSkills.cs" />
+     <Compile Include="Assets\Script\Weapon\Elemental.cs" />
+     <Compile Include="Assets\Script\Weapon\FireSkills.cs" />
+     <Compile Include="Assets\Script\Weapon\IceSkills.cs" />
+     <Compile Include="Assets\Script\Weapon\LightningSkills.cs" />
+     <Compile Include="Assets\Script\Weapon\LookAtMouse.cs" />
+     <Compile Include="Assets\Script\Weapon\WindSkills.cs" />
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
