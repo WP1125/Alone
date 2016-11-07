@@ -1,62 +1,64 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LookAtMouse : MonoBehaviour {
-	public Vector3 mousePos;
-    private bool facingRight;
+public class LookAtMouse : MonoBehaviour
+{
+    private Rigidbody2D body;
+    private Transform parentTransform;
+    private Vector3 mousePos;
+    private float newMx, newMy;
+    private float topAngleMax;
+    private float botAngleMax;
+    // Use this for initialization
+    void Start()
+    {
+        parentTransform = this.transform.parent.gameObject.transform;
+        topAngleMax = 75;
+        botAngleMax = -60;
+    }
 
-	// Use this for initialization
-	void Start () {
-        facingRight = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	void FixedUpdate(){
-		lookAtMouse ();
-	}
-	void lookAtMouse(){
-		mousePos = Input.mousePosition;
-		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
-		mousePos.z = 10;
-		mousePos.x = mousePos.x - transform.position.x;
-		mousePos.y = mousePos.y - transform.position.y;
-		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    // Update is called once per frame
+    void Update()
+    {
+        body = GetComponent<Rigidbody2D>();
 
-        
-
-
-        if (mousePos.x < 0 && facingRight) {
-            facingRight = false;
-            FlipSprite();
-        }
-
-        if (mousePos.x > 0 && !facingRight) {
-            facingRight = true;
-            FlipSprite();
-        }
-
-        if (!transform.parent.GetComponent<Player>().facingRight)
+    }
+    void FixedUpdate()
+    {
+        lookAtMouse();
+    }
+    void lookAtMouse()
+    {
+        mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        //mousePos.z = 10;
+        newMx = mousePos.x - transform.position.x;
+        newMy = mousePos.y - transform.position.y;
+        float angle = Mathf.Atan2(newMy, newMx) * Mathf.Rad2Deg;
+        if (mousePos.x > parentTransform.position.x)
         {
-            Quaternion neg;
-            neg = transform.rotation;
-            neg.z *= -1;
-            transform.rotation = neg;
+            if (angle >= topAngleMax)
+            {
+                angle = topAngleMax;
+            }
+            else if (angle <= botAngleMax)
+            {
+                angle = botAngleMax;
+            }
         }
-
-
+        else
+        {
+            angle = 180 - angle;
+            if (angle >= topAngleMax && angle <= 180)
+            {
+                angle = topAngleMax;
+            }
+            else if (angle <= 360 + botAngleMax && angle >= 180)
+            {
+                angle = 360 + botAngleMax;
+            }
+        }
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
     }
-
-
-    void FlipSprite() {
-        Vector3 flipper = transform.localScale;
-        //flipper. *= -1;
-        flipper.y *= -1;
-        transform.localScale = flipper;
-    }
-
 }
