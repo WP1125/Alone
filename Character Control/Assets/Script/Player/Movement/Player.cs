@@ -275,6 +275,10 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collision");
+        if (other.tag == "Exit")
+        {
+            Application.LoadLevel(Application.loadedLevel + 1);
+        }
         if (other.tag == "PickUp" || other.tag == "Explosive")
         {
             inRangeObjects.Add(other.gameObject);
