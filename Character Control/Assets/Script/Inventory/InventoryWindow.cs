@@ -82,22 +82,27 @@ public class InventoryWindow : MonoBehaviour {
 
     private Sprite ReturnItemIcon(BaseItem item)
     {
-        Sprite icon = new Sprite();
-        Sprite [] spriteCollection = Resources.LoadAll<Sprite>("Sprites/Items");
-        if (item.ItemType == BaseItem.ItemTypes.POTION)
+
+        Sprite icon = item.icon;
+        if (icon == null)
         {
-            //icon = Resources.Load<Sprite>("Sprites/Items/68043_95");
-            icon = spriteCollection[95];
-        }
-        else if (item.ItemType == BaseItem.ItemTypes.QUESTITEM)
-        {
-            //icon = Resources.Load<Sprite>("Sprites/Items/68043_53");
-            icon = spriteCollection[53];
-        }
-        else
-        {
-            //icon = Resources.Load<Sprite>("Sprites/Items/68043_45");
-            icon = spriteCollection[45];
+
+            Sprite[] spriteCollection = Resources.LoadAll<Sprite>("Sprites/Items");
+            if (item.ItemType == BaseItem.ItemTypes.POTION)
+            {
+                //icon = Resources.Load<Sprite>("Sprites/Items/68043_95");
+                icon = spriteCollection[95];
+            }
+            else if (item.ItemType == BaseItem.ItemTypes.QUESTITEM)
+            {
+                //icon = Resources.Load<Sprite>("Sprites/Items/68043_53");
+                icon = spriteCollection[53];
+            }
+            else
+            {
+                //icon = Resources.Load<Sprite>("Sprites/Items/68043_45");
+                icon = spriteCollection[45];
+            }
         }
 
         return icon;

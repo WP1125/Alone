@@ -38,6 +38,8 @@ public class Player : MonoBehaviour {
     private bool doubleJump;
 
     public bool facingRight = true;
+    public static bool useBattery;
+    public static bool inRangeSocket;
 
 
 	void Start() {
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-
+        inRangeObjects = transform.FindChild("GrabCollider").GetComponent<GrabScript>().inRangeObjects;
         //Get player input and wall direction
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         int wallDirX = (controller.collisions.left) ? -1 : 1;
@@ -272,6 +274,27 @@ public class Player : MonoBehaviour {
 
 	}
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "BatterySocket")
+        {
+            inRangeSocket = true;
+            if (useBattery)
+            {
+                useBattery = false;
+            }
+            
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "BatterySocket")
+        {
+            inRangeSocket = false;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collision");
@@ -279,10 +302,9 @@ public class Player : MonoBehaviour {
         {
             Application.LoadLevel(Application.loadedLevel + 1);
         }
-        if (other.tag == "PickUp" || other.tag == "Explosive")
-        {
-            inRangeObjects.Add(other.gameObject);
-        }
+
+
+        
 
         if (other.tag == "Collapse")
         {
@@ -294,14 +316,6 @@ public class Player : MonoBehaviour {
             GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>().PlayerDeath = true;
             Debug.Log("Reset to checkpoint");
             //Change when checkpoints implemented
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "PickUp" || other.tag == "Explosive")
-        {
-            inRangeObjects.Remove(other.gameObject);
         }
     }
     

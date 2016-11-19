@@ -22,6 +22,7 @@ public class Item : MonoBehaviour {
 
     void Start () {
         thisItem = new BaseItem();
+        thisItem.icon = GetComponent<SpriteRenderer>().sprite;
 		if (customStat) {
 			thisItem.ItemName = ItemName;
 			thisItem.ItemDescription = ItemDescription;
@@ -47,7 +48,8 @@ public class Item : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player")
+        
+        if (other.gameObject.tag == "Player")
         {
             bool inventory_full = true;
             playerInventory = player.GetComponent<BasePlayer>().ReturnPlayerInventory();
@@ -77,17 +79,19 @@ public class Item : MonoBehaviour {
 
     private Sprite ReturnItemIcon(BaseItem item)
     {
-        Sprite icon = new Sprite();
-        Sprite[] spriteCollection = Resources.LoadAll<Sprite>("Sprites/Items");
+        if (thisItem.icon == null)
+        {
+            
+            Sprite[] spriteCollection = Resources.LoadAll<Sprite>("Sprites/Items");
 
-        //print(spriteCollection.count);
-        if (item.ItemType == BaseItem.ItemTypes.POTION)
-            icon = spriteCollection[95];
-        else if (item.ItemType == BaseItem.ItemTypes.QUESTITEM)
-            icon = spriteCollection[53];
-        else
-            icon = spriteCollection[45];
-   
-        return icon;
+            //print(spriteCollection.count);
+            if (item.ItemType == BaseItem.ItemTypes.POTION)
+                thisItem.icon = spriteCollection[95];
+            else if (item.ItemType == BaseItem.ItemTypes.QUESTITEM)
+                thisItem.icon = spriteCollection[53];
+            else
+                thisItem.icon = spriteCollection[45];
+        }
+        return thisItem.icon;
     }
 }

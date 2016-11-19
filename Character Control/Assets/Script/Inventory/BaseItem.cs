@@ -9,6 +9,7 @@ public class BaseItem {
     public int ItemID { get; set; }
 	public int ItemValue { get; set; }
     public ItemTypes ItemType { get; set; }
+    public Sprite icon { get; set; }
     //public List<BaseStat> ItemStat { get; set; }
 
     public enum ItemTypes

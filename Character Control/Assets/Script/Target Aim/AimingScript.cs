@@ -8,7 +8,7 @@ public class AimingScript : Staminas {
     public static GameObject MainPlayer;
     // Use this for initialization
     void Start () {
-        MainPlayer = GameObject.Find("Player");
+        MainPlayer = GameObject.FindGameObjectWithTag("Player");
 
     }
 	

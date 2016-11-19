@@ -9,6 +9,7 @@ public class SlectedItem : MonoBehaviour, IDragHandler {
     private Text selectedItemText;
     private List<BaseItem> playerInventory;
     private BasePlayer basePlayerScript;
+    
 
 
     void Start () {
@@ -27,9 +28,21 @@ public class SlectedItem : MonoBehaviour, IDragHandler {
 				selectedItemText.text = "Item comsumed";
 
                 comsumePotion(playerInventory[itemIndex]);
-			} else {
-				selectedItemText.text = "Item connot be comsumed";
 			}
+            if (playerInventory[itemIndex].ItemName == "Battery" && Player.inRangeSocket)
+            {
+                playerInventory[itemIndex].ItemName = "Empty";
+                transform.GetChild(0).gameObject.SetActive(false);
+                selectedItemText.text = "Used Battery";
+                //Whatever battery does should go here.
+
+                Player.useBattery = true;
+            }
+
+            else
+            {
+                selectedItemText.text = "Item connot be comsumed";
+            }
         }
     }
 
