@@ -49,7 +49,7 @@ public class SeeSawBlockController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" || other.tag == "Movable")
+        if (other.tag == "Player" || other.tag == "Movable" || other.tag == "PickUp")
         {
             passengerCount++;
         }
@@ -58,7 +58,7 @@ public class SeeSawBlockController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player" || other.tag == "Movable")
+        if (other.tag == "Player" || other.tag == "Movable" || other.tag == "PickUp")
         {
             passengerCount--;
         }
