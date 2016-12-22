@@ -56,6 +56,9 @@
      <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseCutter.cs" />
      <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseDrag.cs" />
      <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DTear.cs" />
+     <Compile Include="Assets\Script\AI\AIMovement.cs" />
+     <Compile Include="Assets\Script\AI\Bullet.cs" />
+     <Compile Include="Assets\Script\AI\Shooting.cs" />
      <Compile Include="Assets\Script\BoxSpawner.cs" />
      <Compile Include="Assets\Script\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Script\GameMaster.cs" />

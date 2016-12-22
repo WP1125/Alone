@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour {
     public Vector2 projectileVelocity;
     public int projectileDamage;
     public Transform fireOrigin;
+    public bool playerInRange;
 
     GameObject prefab;
     float lastShootTime;
@@ -25,37 +26,66 @@ public class Shooting : MonoBehaviour {
 
         lastShootTime = Time.time;
 	}
-	
-	void Update () {
-	    if (Time.time > lastShootTime + 1 * shootingSpeed)
+
+    void Update()
+    {
+        if (playerInRange)
         {
-            GameObject projectile = Instantiate(prefab) as GameObject;
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            projectile.transform.position = fireOrigin.position;
+            if (Time.time > lastShootTime + 1 * shootingSpeed)
+            {
+                GameObject projectile = Instantiate(prefab) as GameObject;
+                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+                projectile.transform.position = fireOrigin.position;
 
-            if (projectileType == 0) // Normal Bullet
-            {
-                projectile.GetComponent<Bullet>().damage = projectileDamage;        
-                rb.velocity = projectileVelocity;
-            }
-            else if (projectileType == 1) // Explosive Bullet
-            {
-                projectile.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
-                ExplosiveController explosiveController = projectile.transform.GetChild(0).GetComponent<ExplosiveController>();
-                explosiveController.isProjectile = true;
-                explosiveController.explosionTimer = 0.05f;
-                rb.velocity = projectileVelocity;
-                rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            }
-            else // Explosive
-            {
-                ExplosiveController explosiveController = projectile.transform.GetChild(0).GetComponent<ExplosiveController>();
-                explosiveController.explosionTimer = 1.2f;
-                explosiveController.decreaseHP(100);
-                rb.velocity = projectileVelocity;
-            }
 
-            lastShootTime = Time.time;
+
+
+                if (projectileType == 0) // Normal Bullet
+                {
+                    projectile.GetComponent<Bullet>().damage = projectileDamage;
+                    if (GameObject.FindGameObjectWithTag("Player").transform.position.x - transform.position.x < 0)
+                    {
+                        rb.velocity = -projectileVelocity;
+                    }
+                    else
+                    {
+                        rb.velocity = projectileVelocity;
+                    }
+                    
+                }
+                else if (projectileType == 1) // Explosive Bullet
+                {
+                    projectile.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
+                    ExplosiveController explosiveController = projectile.transform.GetChild(0).GetComponent<ExplosiveController>();
+                    explosiveController.isProjectile = true;
+                    explosiveController.explosionTimer = 0.05f;
+                    if (GameObject.FindGameObjectWithTag("Player").transform.position.x - transform.position.x < 0)
+                    {
+                        rb.velocity = -projectileVelocity;
+                    }
+                    else
+                    {
+                        rb.velocity = projectileVelocity;
+                    }
+                    rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+                }
+                else // Explosive
+                {
+                    ExplosiveController explosiveController = projectile.transform.GetChild(0).GetComponent<ExplosiveController>();
+                    explosiveController.explosionTimer = 1.2f;
+                    explosiveController.decreaseHP(100);
+                    if (GameObject.FindGameObjectWithTag("Player").transform.position.x - transform.position.x < 0)
+                    {
+                        rb.velocity = -projectileVelocity;
+                    }
+                    else
+                    {
+                        rb.velocity = projectileVelocity;
+                    }
+                }
+
+                lastShootTime = Time.time;
+            }
         }
-	}
+    }
 }
