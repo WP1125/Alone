@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
             if (collisionCount == playerColliderCount)
             {
                 Destroy(this.gameObject);
-                player.deceaseHP(damage);
+                player.ModifyHP(-damage);
             }
         }
         else if (other.gameObject.name == "Explosive")

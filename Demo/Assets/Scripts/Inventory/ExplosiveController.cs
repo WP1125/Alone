@@ -55,7 +55,7 @@ public class ExplosiveController : MonoBehaviour {
     {
         if (playerInRange)
         {
-            player.deceaseHP(explosionDamage);
+            player.ModifyHP(-explosionDamage);
         }
         Destroy(targetExplosive);
         

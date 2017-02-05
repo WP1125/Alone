@@ -52,7 +52,7 @@ public class SlectedItem : MonoBehaviour, IDragHandler {
     {
         if (item.ItemType == BaseItem.ItemTypes.POTION)
         {
-            basePlayerScript.increaseHP(20);
+            basePlayerScript.ModifyHP(20);
         }
     }
 

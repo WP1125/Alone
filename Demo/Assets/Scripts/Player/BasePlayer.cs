@@ -4,52 +4,66 @@ using System.Collections.Generic;
 
 public class BasePlayer : MonoBehaviour {
 
-    [Range(0,100)]
-	public int playerHP;
+    public GameObject player;
+    [Range(0, 100)]
+	public float playerHP;
 	public int playerStamina;
+    bool overtimeEffects;
+    float effectsDuration;
+    float HPPerSecond;
     //private List<BaseStat> _playerStats = new List<BaseStat>();
     private List<BaseItem> _inventory = new List<BaseItem>();
 
-	// Use this for initialization
+
 	void Start () {
 	    for (int i=0; i < 21; i++)
         {
             BaseItem _item = new BaseItem();
             _inventory.Add(_item);
-            //Debug.Log(_inventory[i].ItemName);
-            //Debug.Log(_inventory[i].ItemDescription);
-            //Debug.Log(_inventory[i].ItemValue);
-            //Debug.Log(_inventory[i].ItemType);
-            //Debug.Log(_inventory[i].ItemStat[0].StatName);
-            //Debug.Log(_inventory[i].ItemStat[0].StatDescription);
-            //Debug.Log(_inventory[i].ItemStat[0].StatType);
         }
 	}
 
     void Update()
     {
-        if (playerHP == 0)
+        if (playerHP == 0f)
         {
-            print("Game Over!");
+            Debug.Log("Game Over! You are dead :(");
+
+            player.GetComponent<Player>().enabled = false;
+            //player.SetActive(false);
         }
+        else if (playerHP < 20f && HPPerSecond == 0f)
+        {
+            playerHP += 1f * Time.deltaTime;
+        }
+        ModifyHP(HPPerSecond, effectsDuration);
     }
 
-    public void increaseHP(int amount)
+    public void ModifyHP(float amount, float duration = 0f)
     {
-        playerHP += amount;
-        if(playerHP > 100)
+        if (duration == 0f)
         {
-            playerHP = 100;
+            if (overtimeEffects == false)
+                playerHP += amount;
+            else
+                overtimeEffects = false;
+            HPPerSecond = 0f;
         }
-    }
+        else if (duration > 0f)
+        {
+            overtimeEffects = true;
+            effectsDuration = duration;
+            HPPerSecond = amount;
 
-    public void deceaseHP(int amount)
-    {
-        playerHP -= amount;
-        if (playerHP < 0)
-        {
-            playerHP = 0;
+            playerHP += amount * Time.deltaTime;
+
+            effectsDuration -= Time.deltaTime;
         }
+
+        if (playerHP > 100f)
+            playerHP = 100f;
+        else if (playerHP < 0f)
+            playerHP = 0f;
     }
 
     public List<BaseItem> ReturnPlayerInventory()
